@@ -1,0 +1,7 @@
+{
+    "aspect_ratio": 1.4,
+    "regex": " Table \\d+",
+    "height_adjustment": -50,
+    "width_adjustment": 0,
+    "keybinding": "F2"
+}

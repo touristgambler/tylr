@@ -1,0 +1,8 @@
+# Ignore build folder (created by PyInstaller)
+build/
+
+# Ignore dist folder (contains the generated .exe)
+dist/
+
+# Ignore PyInstaller spec file (contains build configurations)
+tylr.spec
