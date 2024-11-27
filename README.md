@@ -20,7 +20,9 @@ Follow these steps to download the script, install dependencies, build the `.exe
 
 If you have Git installed, you can clone the repository using the following command in your terminal or Git Bash:
 
+```bash
 git clone https://github.com/your-username/your-repository.git
+```
 
 ### Install Python
 If you don't have Python installed, follow these steps:
@@ -31,7 +33,9 @@ Install Python, and make sure to check the box that says "Add Python to PATH" du
 
 After installation, verify Python is installed by running the following command in Command Prompt or PowerShell:
 
+```bash
 python --version
+```
 
 You should see the Python version installed on your system.
 
@@ -42,10 +46,14 @@ Open Command Prompt or PowerShell on your computer.
 
 Navigate to the folder where you downloaded or cloned the repository. For example, if you extracted the ZIP file to C:\Projects\tylr, use the following command to change the directory:
 
+```bash
 cd C:\Projects\tylr
+```
 Install the necessary Python libraries by running the following command:
 
+```bash
 pip install -r requirements.txt
+```
 
 This will install all the dependencies listed in the requirements.txt file. If you do not have a requirements.txt file, you will need to manually install the required libraries.
 
@@ -56,7 +64,9 @@ In Command Prompt or PowerShell, navigate to the folder where the tylr.py script
 
 Run the following command to build the .exe:
 
+```bash
 python -m PyInstaller --onefile --noconsole tylr.py
+```
 
 --onefile: This option bundles everything into a single .exe file.
 --noconsole: This option ensures that the console window does not open when running the .exe (ideal for GUI applications).
