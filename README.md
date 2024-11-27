@@ -2,6 +2,8 @@
 
 This repository contains a Python script (`tylr.py`) and instructions on how to turn it into a standalone `.exe` file, which can be run on a Windows machine without needing to run the script via the terminal any time you want to start it.
 
+![tylr](tylr.png)
+
 ## Steps to Download and Build the Executable
 
 Follow these steps to download the script, install dependencies, build the `.exe` file, and run it:
