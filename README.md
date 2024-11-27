@@ -1,14 +1,19 @@
-# tylr.py - Convert Python Script to Windows Executable
+# tylr.py
 
-This repository contains a Python script (`tylr.py`) and instructions on how to turn it into a standalone `.exe` file, which can be run on a Windows machine without needing to run the script via the terminal any time you want to start it.
+`tylr.py` is a minimalistic Python script designed to dynamically tile and arrange poker table windows on your screen. It works by identifying poker table windows based on their titles using a configurable regular expression (regex) pattern. By default, the script matches windows that contain the word "Table" followed by a number, such as "Table 1", "Table 9", etc.
+This is a very crude implementation, but works well for my personal use case. Feel free to download, modify, fork it or contribute to the project.
 
 ![tylr](tylr.png)
+
+# Convert Python Script to Windows Executable
+
+Here are instructions on how to turn `tylr.py` into a standalone `.exe` file, which can be run on a Windows machine without needing to run the script via the terminal any time you want to start it.
+
 
 ## Steps to Download and Build the Executable
 
 Follow these steps to download the script, install dependencies, build the `.exe` file, and run it:
 
----
 
 ### 1. Download or Clone the Repository
 
