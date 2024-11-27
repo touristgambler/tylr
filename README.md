@@ -2,6 +2,7 @@
 
 `tylr.py` is a minimalistic Python script designed to dynamically tile and arrange poker table windows on your screen. It works by identifying poker table windows based on their titles using a configurable regular expression (regex) pattern. By default, the script matches windows that contain the word "Table" followed by a number, such as "Table 1", "Table 9", etc.
 This is a very crude implementation, but works well for my personal use case. Feel free to download, modify, fork it or contribute to the project.
+Works with up to 12 tables, tested with PokerStars and GGPoker. Can easily be adjusted to work with more tables, other layouts and other sites.
 
 ![tylr](tylr.png)
 
