@@ -92,8 +92,6 @@ class MainWindow(QMainWindow):
         height_layout = QHBoxLayout()
         height_label = QLabel("Height Adjustment:")
         height_spinbox = QSpinBox()
-        height_spinbox.setMinimum(-500)
-        height_spinbox.setMaximum(500)
         height_spinbox.setValue(self.height_adjustment)
         height_spinbox.valueChanged.connect(lambda value: setattr(self, "height_adjustment", value))
         height_layout.addWidget(height_label)
@@ -104,8 +102,6 @@ class MainWindow(QMainWindow):
         width_layout = QHBoxLayout()
         width_label = QLabel("Width Adjustment:")
         width_spinbox = QSpinBox()
-        width_spinbox.setMinimum(-500)
-        width_spinbox.setMaximum(500)
         width_spinbox.setValue(self.width_adjustment)
         width_spinbox.valueChanged.connect(lambda value: setattr(self, "width_adjustment", value))
         width_layout.addWidget(width_label)
@@ -138,10 +134,25 @@ class MainWindow(QMainWindow):
 
         # Keybinding setup
         keyboard.add_hotkey(self.keybinding, self.apply_layout)
+        # Keybinding setup
+        keyboard.add_hotkey("F3", self.apply_half_screen_layout)
 
+    def apply_half_screen_layout(self):
+        """Apply the dynamic layout."""
+        screen_width, screen_height = get_main_screen_dimensions()
+        print(screen_height)
+        print(screen_width)
+        tile_windows_dynamic(
+            int(screen_width / 2) + self.width_adjustment,
+            screen_height + self.height_adjustment,
+            self.aspect_ratio,
+            self.regex,
+        )
     def apply_layout(self):
         """Apply the dynamic layout."""
         screen_width, screen_height = get_main_screen_dimensions()
+        print(screen_height)
+        print(screen_width)
         tile_windows_dynamic(
             screen_width + self.width_adjustment,
             screen_height + self.height_adjustment,
@@ -179,6 +190,10 @@ def tile_windows_dynamic(screen_width, screen_height, aspect_ratio, regex):
     found_windows = [
         win for win in gw.getWindowsWithTitle("") if win.visible and re.search(regex, win.title)
     ]
+    
+    # Sort the windows alphanumerically by title
+    found_windows = sorted(found_windows, key=lambda win: win.title)
+    
     window_count = len(found_windows)
 
     if window_count == 0:
@@ -218,8 +233,11 @@ def center_grid_layout(window_count, screen_width, screen_height, aspect_ratio=1
     elif 5 <= window_count <= 6:
         # 2x3 grid centered on the screen
         layout = (2, 3)
+    elif 7 <= window_count <= 8:
+        # 2x3 grid centered on the screen
+        layout = (2, 4)
     else:
-        # 3x4 grid (handles 7 or more windows)
+        # 3x4 grid (handles 9 or more windows)
         layout = (3, 4)
     
     num_rows, num_columns = layout
